@@ -1,18 +1,18 @@
 package com.pragma.powerup.domain.model;
 
 public class Restaurant {
-    private Integer id;
+    private Long id;
     private String nombre;
     private String nit;
     private String direccion;
     private String telefono;
     private String urlLogo;
-    private String idPropietario;
+    private Long idPropietario;
 
     public Restaurant() {
     }
 
-    public Restaurant(Integer id, String nombre, String nit, String direccion, String telefono, String urlLogo, String idPropietario) {
+    public Restaurant(Long id, String nombre, String nit, String direccion, String telefono, String urlLogo, Long idPropietario) {
         this.id = id;
         this.nombre = nombre;
         this.nit = nit;
@@ -22,11 +22,11 @@ public class Restaurant {
         this.idPropietario = idPropietario;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -70,11 +70,11 @@ public class Restaurant {
         this.urlLogo = urlLogo;
     }
 
-    public String getIdPropietario() {
+    public Long getIdPropietario() {
         return idPropietario;
     }
 
-    public void setIdPropietario(String idPropietario) {
+    public void setIdPropietario(Long idPropietario) {
         this.idPropietario = idPropietario;
     }
 }

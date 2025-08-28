@@ -22,7 +22,7 @@ class RestarurantUseCaseTest {
     @Test
     void saveRestaurant_ShouldCallPersistencePort() {
         // Arrange
-        Restaurant restaurant = new Restaurant(1L,"Restaurante A", "123456", "Calle 123", "123456789", "logo.png", "1");
+        Restaurant restaurant = new Restaurant(1L,"Restaurante A", "123456", "Calle 123", "123456789", "logo.png", 1L);
 
         // Act
         restarurantUseCase.saveRestaurant(restaurant);
