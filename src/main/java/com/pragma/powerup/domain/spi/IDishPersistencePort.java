@@ -2,6 +2,6 @@ package com.pragma.powerup.domain.spi;
 
 import com.pragma.powerup.domain.model.Dish;
 
-public interface IDishServicePort {
+public interface IDishPersistencePort {
     void saveDish(Dish dish);
 }
