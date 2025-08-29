@@ -1,7 +1,6 @@
 package com.pragma.powerup.infrastructure.exceptionhandler;
 
-import com.pragma.powerup.infrastructure.exception.RestaurantAlreadyExistsException;
-import com.pragma.powerup.infrastructure.exception.UserIsNotOwnerException;
+import com.pragma.powerup.infrastructure.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -33,5 +32,26 @@ public class ControllerAdvisor {
             UserIsNotOwnerException userIsNotOwnerException) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(Collections.singletonMap(MESSAGE, ExceptionResponse.USER_IS_NOT_OWNER.getMessage()));
+    }
+
+    @ExceptionHandler(ExternalInvalidRequestException.class)
+    public ResponseEntity<Map<String, String>> handleExternalInvalidRequestException(
+            ExternalInvalidRequestException externalInvalidRequestException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.EXTERNAL_INVALID_REQUEST.getMessage()));
+    }
+
+    @ExceptionHandler(ExternalResourceNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleExternalResourceNotFoundException(
+            ExternalResourceNotFoundException externalResourceNotFoundException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.EXTERNAL_RESOURCE_NOT_FOUND.getMessage()));
+    }
+
+    @ExceptionHandler(ExternalServiceException.class)
+    public ResponseEntity<Map<String, String>> handleExternalServiceException(
+            ExternalServiceException externalServiceException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.EXTERNAL_SERVICE_ERROR.getMessage()));
     }
 }
