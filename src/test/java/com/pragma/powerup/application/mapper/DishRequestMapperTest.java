@@ -1,6 +1,7 @@
 package com.pragma.powerup.application.mapper;
 
 import com.pragma.powerup.application.dto.DishRequest;
+import com.pragma.powerup.application.dto.DishUpdateRequest;
 import com.pragma.powerup.domain.model.Dish;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -31,5 +32,22 @@ class DishRequestMapperTest {
         assertEquals(dishRequest.descripcion(), dish.getDescripcion());
         assertEquals(dishRequest.urlImagen(), dish.getUrlImagen());
         assertEquals(dishRequest.categoria(), dish.getCategoria());
+    }
+
+    @Test
+    void toDishUpdate_ShouldMapDishUpdateRequestToDish() {
+        // Arrange
+        DishUpdateRequest dishUpdateRequest = new DishUpdateRequest(
+                20000,
+                "Pizza con más queso"
+        );
+
+        // Act
+        Dish dish = mapper.toDishUpdate(dishUpdateRequest);
+
+        // Assert
+
+        assertEquals(dishUpdateRequest.precio(), dish.getPrecio());
+        assertEquals(dishUpdateRequest.descripcion(), dish.getDescripcion());
     }
 }
