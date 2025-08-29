@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "restaurantes")
 @NoArgsConstructor
@@ -34,4 +36,8 @@ public class RestaurantEntity {
 
     @Column(name = "id_propietario", nullable = false)
     private Long idPropietario;
+
+    @OneToMany
+    @JoinColumn(name = "restaurante_id")
+    private List<DishEntity> dishes;
 }
