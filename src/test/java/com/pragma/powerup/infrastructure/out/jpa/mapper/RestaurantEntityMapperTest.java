@@ -47,7 +47,8 @@ class RestaurantEntityMapperTest {
                 "Calle 123",
                 "+573001234567",
                 "http://logo.com/logo.png",
-                2L
+                2L,
+                null
         );
 
         // Act
