@@ -18,7 +18,7 @@ public class RestaurantController {
 
     private final IRestaurantHandler restaurantHandler;
 
-    @PostMapping("/propietarios")
+    @PostMapping("/")
     public ResponseEntity<Void> saveRestaurant(@RequestBody @Valid RestaurantRequest restaurantRequest) {
         restaurantHandler.saveRestaurant(restaurantRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
