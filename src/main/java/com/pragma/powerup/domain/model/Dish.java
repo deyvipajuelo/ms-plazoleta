@@ -1,6 +1,7 @@
 package com.pragma.powerup.domain.model;
 
 public class Dish {
+    private Long id;
     private String nombrePlato;
     private Integer precio;
     private String descripcion;
@@ -73,5 +74,13 @@ public class Dish {
 
     public void setRestauranteId(Long restaurantId) {
         this.restauranteId = restaurantId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
