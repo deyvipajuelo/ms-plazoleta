@@ -4,6 +4,7 @@ import com.pragma.powerup.application.dto.DishRequest;
 import com.pragma.powerup.application.dto.DishUpdateRequest;
 import com.pragma.powerup.domain.model.Dish;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
@@ -12,5 +13,7 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface DishRequestMapper {
     Dish toDish(DishRequest dishRequest);
-    Dish toDishUpdate(DishUpdateRequest dishUpdateRequest);
+
+    @Mapping(target = "id", source = "id")
+    Dish toDishUpdate(DishUpdateRequest dishUpdateRequest, Long id);
 }

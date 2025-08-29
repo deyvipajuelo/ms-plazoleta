@@ -43,11 +43,12 @@ class DishRequestMapperTest {
         );
 
         // Act
-        Dish dish = mapper.toDishUpdate(dishUpdateRequest);
+        Dish dish = mapper.toDishUpdate(dishUpdateRequest, 1L);
 
         // Assert
 
         assertEquals(dishUpdateRequest.precio(), dish.getPrecio());
         assertEquals(dishUpdateRequest.descripcion(), dish.getDescripcion());
+        assertEquals(1L, dish.getId());
     }
 }
