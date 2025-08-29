@@ -7,16 +7,16 @@ public class Dish {
     private String urlImagen;
     private String categoria;
     private boolean isActive;
-    private Long restaurantId;
+    private Long restauranteId;
 
-    public Dish(String nombrePlato, Integer precio, String descripcion, String urlImagen, String categoria, boolean isActive, Long restaurantId) {
+    public Dish(String nombrePlato, Integer precio, String descripcion, String urlImagen, String categoria, boolean isActive, Long restauranteId) {
         this.nombrePlato = nombrePlato;
         this.precio = precio;
         this.descripcion = descripcion;
         this.urlImagen = urlImagen;
         this.categoria = categoria;
         this.isActive = isActive;
-        this.restaurantId = restaurantId;
+        this.restauranteId = restauranteId;
     }
 
     public String getNombrePlato() {
@@ -67,11 +67,11 @@ public class Dish {
         isActive = active;
     }
 
-    public Long getRestaurantId() {
-        return restaurantId;
+    public Long getRestauranteId() {
+        return restauranteId;
     }
 
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setRestauranteId(Long restaurantId) {
+        this.restauranteId = restaurantId;
     }
 }

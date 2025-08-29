@@ -16,11 +16,14 @@ public class DishEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "nombre_plato", nullable = false)
     private String nombrePlato;
     private Integer precio;
     private String descripcion;
+    @Column(name = "url_imagen")
     private String urlImagen;
     private String categoria;
+    @Column(name = "is_active", nullable = false)
     private boolean isActive;
     @Column(name = "restaurante_id", nullable = false)
     private Long restauranteId;

@@ -35,7 +35,7 @@ class DishEntityMapperTest {
         assertEquals(dish.getUrlImagen(), dishEntity.getUrlImagen());
         assertEquals(dish.getCategoria(), dishEntity.getCategoria());
         assertEquals(dish.isActive(), dishEntity.isActive());
-        assertEquals(dish.getRestaurantId(), dishEntity.getRestauranteId());
+        assertEquals(dish.getRestauranteId(), dishEntity.getRestauranteId());
     }
 
 }

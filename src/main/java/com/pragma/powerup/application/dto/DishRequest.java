@@ -22,6 +22,6 @@ public record DishRequest(
         String categoria,
 
         @NotNull(message = "El ID del restaurante es obligatorio")
-        Long restaurantId
+        Long restauranteId
 ) {
 }
