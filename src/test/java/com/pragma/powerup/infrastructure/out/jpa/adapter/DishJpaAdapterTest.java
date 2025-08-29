@@ -1,6 +1,7 @@
 package com.pragma.powerup.infrastructure.out.jpa.adapter;
 
 import com.pragma.powerup.domain.model.Dish;
+import com.pragma.powerup.infrastructure.exception.DishNotFoundException;
 import com.pragma.powerup.infrastructure.out.jpa.entity.DishEntity;
 import com.pragma.powerup.infrastructure.out.jpa.mapper.DishEntityMapper;
 import com.pragma.powerup.infrastructure.out.jpa.repository.IDishRepository;
@@ -9,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -58,5 +59,34 @@ class DishJpaAdapterTest {
         // Assert
         verify(dishEntityMapper, times(1)).toEntity(dish);
         verify(dishRepository, times(1)).save(dishEntity);
+    }
+
+    @Test
+    void getDishById_ShouldReturnDish_WhenDishExists() {
+        // Arrange
+        Long idDish = 1L;
+        when(dishRepository.findById(idDish)).thenReturn(Optional.of(dishEntity));
+        when(dishEntityMapper.toDish(dishEntity)).thenReturn(dish);
+
+        // Act
+        Dish result = dishJpaAdapter.getDishById(idDish);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(dish, result);
+        verify(dishRepository, times(1)).findById(idDish);
+        verify(dishEntityMapper, times(1)).toDish(dishEntity);
+    }
+
+    @Test
+    void getDishById_ShouldThrowDishNotFoundException_WhenDishDoesNotExist() {
+        // Arrange
+        Long idDish = 1L;
+        when(dishRepository.findById(idDish)).thenReturn(Optional.empty());
+
+        // Act & Assert
+        assertThrows(DishNotFoundException.class, () -> dishJpaAdapter.getDishById(idDish));
+        verify(dishRepository, times(1)).findById(idDish);
+        verify(dishEntityMapper, never()).toDish(any());
     }
 }
